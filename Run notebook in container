@@ -1,0 +1,10 @@
+docker pull continuumio/anaconda3
+docker run -i --name=ml_training --mount type=bind,source=/Users/vehpus/git/ml_training/notebooks,target=/ml_training_notebooks -p 8888:8888 -t continuumio/anaconda3 /bin/bash
+/opt/conda/bin/conda install jupyter -y --quiet
+conda install -c conda-forge jupyter_contrib_nbextensions
+/opt/conda/bin/jupyter notebook --notebook-dir=/ml_training_notebooks --ip='*' --port=8888 --no-browser --allow-root
+
+
+https://www.tensorflow.org/install/install_linux#InstallingAnaconda
+
+docker exec -i ml_training /bin/bash
